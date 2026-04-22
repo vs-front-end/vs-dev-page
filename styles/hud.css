@@ -1,0 +1,118 @@
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.hud > * {
+  pointer-events: auto;
+}
+
+.hud-left,
+.hud-center,
+.hud-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.hud-label {
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+
+.hud-value {
+  color: var(--yellow);
+  font-family: var(--font-arcade);
+  font-size: 12px;
+}
+
+.hud-value.cyan {
+  color: var(--cyan);
+}
+
+.hud-value.magenta {
+  color: var(--magenta);
+}
+
+.lives {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(6, 6, 15, 0.82);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lang-btn.is-active {
+  color: #0a0a1a;
+  background: var(--yellow);
+}
+
+.life-pip {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--magenta);
+  text-shadow: 0 0 8px rgba(255, 45, 149, 0.6);
+}
+
+.life-pip::before {
+  content: "♥";
+}
+
+.life-pip.lost {
+  color: var(--ink-muted);
+  text-shadow: none;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-arcade);
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+.logo-mark .logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 10px var(--yellow);
+  animation: pulse 1.2s ease-in-out infinite;
+}

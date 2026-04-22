@@ -1,0 +1,137 @@
+.skills {
+  padding: 120px 0;
+}
+
+.skills-head {
+  margin-bottom: 40px;
+}
+
+.skills-head-meta {
+  min-width: 160px;
+}
+
+.skills-head-meta-v {
+  color: var(--cyan);
+}
+
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.skill-group {
+  padding: 24px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #06060f;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.skill-group:hover {
+  background: #08081a;
+  border-color: var(--gc, var(--line-strong));
+}
+
+.sg-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gc, var(--yellow));
+  box-shadow: 0 0 10px var(--gc, var(--yellow));
+  flex-shrink: 0;
+}
+
+.sg-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gc, var(--ink-muted));
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.sg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sg-list li {
+  font-family: var(--font-arcade);
+  font-size: 12px;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.sg-list li::before {
+  content: "▸";
+  color: var(--gc, var(--ink-muted));
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.power-pellet-banner {
+  padding: 28px 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 212, 0, 0.08),
+    rgba(255, 45, 149, 0.08),
+    rgba(0, 240, 255, 0.08)
+  );
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.power-pellet-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.power-pellet-banner .pp-title {
+  font-family: var(--font-arcade);
+  font-size: 12px;
+  color: var(--yellow);
+  margin: 0;
+}
+
+.power-pellet-banner .pp-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 6px 0 0;
+}
+
+.pp-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 24px var(--yellow);
+  animation: pulse 1s infinite;
+  position: relative;
+  flex-shrink: 0;
+}

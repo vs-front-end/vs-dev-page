@@ -1,0 +1,233 @@
+/* === 1024px — tablet/mobile === */
+@media (max-width: 1024px) {
+  .hud {
+    padding: 14px 20px;
+  }
+
+  .hud-center {
+    display: none;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 96px 0 64px;
+    text-align: center;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .arcade-cabinet {
+    display: none;
+  }
+
+  .hero-tag {
+    justify-content: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  .section-label {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .section-head {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-head-meta,
+  .skills-head-meta,
+  .contact-head-meta,
+  .level-counter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .about {
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .ghost-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-title {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+
+  .ghost-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ghost-info,
+  .ghost-role {
+    text-align: center;
+  }
+
+  .ghost-stat {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .ghost-stat span:first-child {
+    text-align: center;
+  }
+
+  .ghost-stat span:last-child {
+    text-align: center;
+  }
+
+  .skills {
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .skills-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skill-group {
+    text-align: center;
+  }
+
+  .sg-header {
+    justify-content: center;
+  }
+
+  .sg-list li {
+    justify-content: center;
+  }
+
+  .projects {
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .level-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .level-info {
+    text-align: center;
+  }
+
+  .level-info .stack {
+    justify-content: center;
+  }
+
+  .level-info p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .level-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .level-num .big {
+    font-size: 32px;
+    margin-top: 0;
+  }
+
+  .level-actions {
+    justify-content: center;
+  }
+
+  .level-preview {
+    display: none;
+  }
+
+  .contact {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-size: clamp(24px, 8vw, 40px);
+  }
+
+  .contact-links {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .contact-card {
+    width: min(100%, 520px);
+    min-width: 0;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-card .c-value {
+    justify-content: center;
+  }
+
+  .power-pellet-banner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .power-pellet-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .power-pellet-banner .btn {
+    align-self: center;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ghost-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+}

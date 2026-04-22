@@ -1,0 +1,1059 @@
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio de Vitor Silva, desenvolvedor front-end especializado em React, React Native e TypeScript, com foco em design systems, web e mobile."
+    />
+    <title data-i18n="meta.title">Vitor Silva — Frontend Developer</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/hud.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/minigame.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/skills.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/contact.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
+
+  <body>
+    <!-- Fixed overlays -->
+    <div class="crt-overlay"></div>
+    <div class="vignette"></div>
+    <div class="maze-bg" aria-hidden="true">
+      <svg id="maze-svg" preserveAspectRatio="xMidYMid slice"></svg>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursor-dot">
+      <canvas id="pac-canvas" width="40" height="40"></canvas>
+    </div>
+
+    <!-- Chase ghosts container -->
+    <div id="chase-ghosts" aria-hidden="true"></div>
+
+    <!-- HUD -->
+    <header class="hud">
+      <div class="hud-left">
+        <div class="logo-mark">
+          <span class="logo-dot"></span>
+          <span>VS.DEV</span>
+        </div>
+      </div>
+
+      <div class="hud-center">
+        <div>
+          <div class="hud-label">1UP</div>
+          <div class="hud-value" id="hud-score">000000</div>
+        </div>
+
+        <div>
+          <div class="hud-label">HIGH</div>
+          <div class="hud-value cyan" id="hud-high">013370</div>
+        </div>
+
+        <div>
+          <div class="hud-label">LVL</div>
+          <div class="hud-value magenta" id="hud-level">01</div>
+        </div>
+      </div>
+
+      <div class="hud-right">
+        <div class="lives">
+          <span
+            class="hud-label"
+            style="margin-right: 8px"
+            data-i18n="hud.lives"
+            >VIDAS</span
+          >
+          <span class="life-pip" id="life-0"></span>
+          <span class="life-pip" id="life-1"></span>
+          <span class="life-pip" id="life-2"></span>
+        </div>
+
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button class="lang-btn is-active" type="button" data-lang="pt-BR">
+            PT
+          </button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="app">
+      <!-- ========== HERO ========== -->
+      <section class="hero" id="hero" data-screen-label="01 Hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <h1 class="hero-title">
+                <span class="t-line t-line-1">VITOR SILVA</span>
+                <span class="t-line t-line-2" data-i18n="hero.title.line2"
+                  >DEV. FRONT-END</span
+                >
+              </h1>
+
+              <div class="hero-tag">
+                <span data-i18n="hero.tag"
+                  >DESIGN SYSTEMS · PERFORMANCE · ACESSIBILIDADE</span
+                >
+              </div>
+
+              <p class="hero-subtitle">
+                <span data-i18n="hero.subtitle"
+                  >Desenvolvedor front-end com 4 anos de experiência em React,
+                  React Native e TypeScript. Construo design systems, monorepos
+                  e interfaces que funcionam em web e mobile. Aberto a projetos
+                  freelance e oportunidades remotas full-time.</span
+                >
+              </p>
+
+              <div class="hero-meta">
+                <div>
+                  <span class="hud-label">STACK</span>
+                  <strong>FRONT-END · WEB · MOBILE</strong>
+                </div>
+
+                <div>
+                  <span class="hud-label" data-i18n="hero.meta.basedLabel"
+                    >BASE</span
+                  >
+                  <strong data-i18n="hero.meta.basedValue"
+                    >Brasil · Remoto</strong
+                  >
+                </div>
+
+                <div>
+                  <span class="hud-label" data-i18n="hero.meta.statusLabel"
+                    >STATUS</span
+                  >
+                  <strong
+                    style="color: var(--green)"
+                    data-i18n="hero.meta.statusValue"
+                    >● DISPONIVEL</strong
+                  >
+                </div>
+              </div>
+
+              <div class="btn-group">
+                <a
+                  class="btn"
+                  href="#projects"
+                  data-i18n-html="hero.cta.projects"
+                  ><span class="btn-icon" aria-hidden="true">▶</span>VIEW
+                  PROJECTS</a
+                >
+                <a
+                  class="btn ghost-btn"
+                  href="#contact"
+                  data-i18n-html="hero.cta.contact"
+                  >GET IN TOUCH<span class="btn-icon" aria-hidden="true"
+                    >→</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <!-- Arcade Cabinet -->
+            <div class="arcade-cabinet" id="arcade-cabinet">
+              <div class="cabinet-marquee">
+                <span class="marquee-text"
+                  >★ REACT ★ TYPESCRIPT ★ REACT NATIVE ★ DESIGN SYSTEMS ★ WEB
+                  &amp; MOBILE ★ MONOREPO ★ REACT ★ TYPESCRIPT ★ REACT NATIVE ★
+                  DESIGN SYSTEMS ★ WEB &amp; MOBILE ★ MONOREPO ★</span
+                >
+              </div>
+
+              <div class="cabinet-screen">
+                <canvas id="game-canvas"></canvas>
+
+                <div class="mini-game-overlay" id="game-overlay-start">
+                  <h2 class="mini-game-title" data-i18n-html="game.start.title">
+                    PLAYABLE<br />DEMO
+                  </h2>
+                  <p data-i18n-html="game.start.instructions">
+                    Arrow keys / <span class="keycap">WASD</span> para mover.
+                    Coma todas as bolinhas.
+                  </p>
+
+                  <button
+                    class="btn insert-coin-btn"
+                    id="btn-insert-coin"
+                    data-i18n="game.start.insertCoin"
+                  >
+                    ▶ INSERIR FICHA
+                  </button>
+                </div>
+
+                <div
+                  class="mini-game-overlay"
+                  id="game-overlay-over"
+                  style="display: none"
+                >
+                  <h2
+                    class="mini-game-title"
+                    style="color: var(--magenta)"
+                    data-i18n-html="game.over.title"
+                  >
+                    GAME<br />OVER
+                  </h2>
+                  <p id="game-over-score">Score: 0</p>
+                  <button
+                    class="btn"
+                    id="btn-retry"
+                    data-i18n="game.over.retry"
+                  >
+                    ↻ RETRY
+                  </button>
+                </div>
+
+                <div
+                  class="mini-game-overlay"
+                  id="game-overlay-win"
+                  style="display: none"
+                >
+                  <h2
+                    class="mini-game-title"
+                    style="color: var(--green)"
+                    data-i18n="game.win.title"
+                  >
+                    YOU WIN!
+                  </h2>
+                  <p id="game-win-score">Score: 0</p>
+                  <button
+                    class="btn"
+                    id="btn-play-again"
+                    data-i18n="game.win.playAgain"
+                  >
+                    ↻ PLAY AGAIN
+                  </button>
+                </div>
+              </div>
+
+              <div class="cabinet-panel">
+                <div class="cabinet-joystick">
+                  <button class="dpad dpad-up" id="dpad-up" aria-label="up">
+                    ▲
+                  </button>
+
+                  <button
+                    class="dpad dpad-left"
+                    id="dpad-left"
+                    aria-label="left"
+                  >
+                    ◀
+                  </button>
+
+                  <div class="dpad-center"></div>
+
+                  <button
+                    class="dpad dpad-right"
+                    id="dpad-right"
+                    aria-label="right"
+                  >
+                    ▶
+                  </button>
+
+                  <button
+                    class="dpad dpad-down"
+                    id="dpad-down"
+                    aria-label="down"
+                  >
+                    ▼
+                  </button>
+                </div>
+
+                <div class="cabinet-buttons">
+                  <button
+                    class="arcade-btn ab-red"
+                    id="btn-reset"
+                    aria-label="Reset"
+                  >
+                    <span class="ab-label" data-i18n="game.panel.reset"
+                      >RESET</span
+                    >
+                  </button>
+
+                  <button
+                    class="arcade-btn ab-yellow"
+                    id="btn-start"
+                    aria-label="Start"
+                  >
+                    <span class="ab-label" data-i18n="game.panel.start"
+                      >START</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="about" id="about" data-screen-label="02 About">
+        <div class="container">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span data-i18n="about.label">ABOUT</span>
+            <span class="level-tag" data-i18n="stage.02">STAGE 02</span>
+          </div>
+
+          <div class="about-head section-head">
+            <h2 class="about-title section-title" data-i18n-html="about.title">
+              FOUR GHOSTS<br />ONE DEV.
+            </h2>
+
+            <div class="about-head-meta section-head-meta">
+              <div data-i18n="about.meta.mode">MODE</div>
+              <div
+                class="about-head-meta-v section-head-meta-v"
+                data-i18n="about.meta.value"
+              >
+                GHOST PROFILES
+              </div>
+            </div>
+          </div>
+
+          <div class="ghost-grid">
+            <div class="ghost-card" style="--c: #ff3d5e">
+              <div class="ghost-avatar">
+                <svg
+                  class="ghost-sprite"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 64 64"
+                >
+                  <defs>
+                    <filter
+                      id="glow-blinky"
+                      x="-20%"
+                      y="-20%"
+                      width="140%"
+                      height="140%"
+                    >
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M32 6 C18 6 10 16 10 30 L10 54 L14 50 L18 54 L22 50 L26 54 L30 50 L34 54 L38 50 L42 54 L46 50 L50 54 L54 50 L54 30 C54 16 46 6 32 6 Z"
+                    fill="#ff3d5e"
+                    filter="url(#glow-blinky)"
+                  />
+                  <ellipse cx="24" cy="26" rx="6" ry="7" fill="#fff" />
+                  <ellipse cx="40" cy="26" rx="6" ry="7" fill="#fff" />
+                  <circle cx="26" cy="26" r="3" fill="#0a0a1a" />
+                  <circle cx="42" cy="26" r="3" fill="#0a0a1a" />
+                </svg>
+
+                <h3 class="ghost-name">BLINKY</h3>
+              </div>
+
+              <div class="ghost-info">
+                <div class="ghost-role" data-i18n="about.cards.blinky.role">
+                  Frontend Architecture
+                </div>
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.specialty">ESPECIALIDADE</span
+                  ><span data-i18n="about.cards.blinky.specialty"
+                    >UI web escalavel</span
+                  >
+                </div>
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.deliveries">ENTREGAS</span
+                  ><span data-i18n="about.cards.blinky.deliveries"
+                    >Design systems e componentes</span
+                  >
+                </div>
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.focus">FOCO</span
+                  ><span data-i18n="about.cards.blinky.focus"
+                    >Consistencia visual</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="ghost-card" style="--c: #ff6fd6">
+              <div class="ghost-avatar">
+                <svg
+                  class="ghost-sprite"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 64 64"
+                >
+                  <defs>
+                    <filter
+                      id="glow-pinky"
+                      x="-20%"
+                      y="-20%"
+                      width="140%"
+                      height="140%"
+                    >
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M32 6 C18 6 10 16 10 30 L10 54 L14 50 L18 54 L22 50 L26 54 L30 50 L34 54 L38 50 L42 54 L46 50 L50 54 L54 50 L54 30 C54 16 46 6 32 6 Z"
+                    fill="#ff6fd6"
+                    filter="url(#glow-pinky)"
+                  />
+                  <ellipse cx="24" cy="26" rx="6" ry="7" fill="#fff" />
+                  <ellipse cx="40" cy="26" rx="6" ry="7" fill="#fff" />
+                  <circle cx="26" cy="26" r="3" fill="#0a0a1a" />
+                  <circle cx="42" cy="26" r="3" fill="#0a0a1a" />
+                </svg>
+
+                <h3 class="ghost-name">PINKY</h3>
+              </div>
+
+              <div class="ghost-info">
+                <div class="ghost-role" data-i18n="about.cards.pinky.role">
+                  Mobile Experience
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.specialty">ESPECIALIDADE</span
+                  ><span data-i18n="about.cards.pinky.specialty"
+                    >Fluxos mobile nativos</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.deliveries">ENTREGAS</span
+                  ><span data-i18n="about.cards.pinky.deliveries"
+                    >Telas, navegacao e estados</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.focus">FOCO</span
+                  ><span data-i18n="about.cards.pinky.focus"
+                    >UX em iOS e Android</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="ghost-card" style="--c: #ffb84d">
+              <div class="ghost-avatar">
+                <svg
+                  class="ghost-sprite"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 64 64"
+                >
+                  <defs>
+                    <filter
+                      id="glow-clyde"
+                      x="-20%"
+                      y="-20%"
+                      width="140%"
+                      height="140%"
+                    >
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M32 6 C18 6 10 16 10 30 L10 54 L14 50 L18 54 L22 50 L26 54 L30 50 L34 54 L38 50 L42 54 L46 50 L50 54 L54 50 L54 30 C54 16 46 6 32 6 Z"
+                    fill="#ffb84d"
+                    filter="url(#glow-clyde)"
+                  />
+                  <ellipse cx="24" cy="26" rx="6" ry="7" fill="#fff" />
+                  <ellipse cx="40" cy="26" rx="6" ry="7" fill="#fff" />
+                  <circle cx="26" cy="26" r="3" fill="#0a0a1a" />
+                  <circle cx="42" cy="26" r="3" fill="#0a0a1a" />
+                </svg>
+
+                <h3 class="ghost-name">CLYDE</h3>
+              </div>
+
+              <div class="ghost-info">
+                <div class="ghost-role" data-i18n="about.cards.clyde.role">
+                  API Integration
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.specialty">ESPECIALIDADE</span
+                  ><span data-i18n="about.cards.clyde.specialty"
+                    >Integracao com APIs</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.deliveries">ENTREGAS</span
+                  ><span data-i18n="about.cards.clyde.deliveries"
+                    >Contratos claros e dados confiaveis</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.focus">FOCO</span
+                  ><span data-i18n="about.cards.clyde.focus"
+                    >Estabilidade do produto</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="ghost-card" style="--c: #3ddfff">
+              <div class="ghost-avatar">
+                <svg
+                  class="ghost-sprite"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 64 64"
+                >
+                  <defs>
+                    <filter
+                      id="glow-inky"
+                      x="-20%"
+                      y="-20%"
+                      width="140%"
+                      height="140%"
+                    >
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M32 6 C18 6 10 16 10 30 L10 54 L14 50 L18 54 L22 50 L26 54 L30 50 L34 54 L38 50 L42 54 L46 50 L50 54 L54 50 L54 30 C54 16 46 6 32 6 Z"
+                    fill="#3ddfff"
+                    filter="url(#glow-inky)"
+                  />
+                  <ellipse cx="24" cy="26" rx="6" ry="7" fill="#fff" />
+                  <ellipse cx="40" cy="26" rx="6" ry="7" fill="#fff" />
+                  <circle cx="26" cy="26" r="3" fill="#0a0a1a" />
+                  <circle cx="42" cy="26" r="3" fill="#0a0a1a" />
+                </svg>
+
+                <h3 class="ghost-name">INKY</h3>
+              </div>
+
+              <div class="ghost-info">
+                <div class="ghost-role" data-i18n="about.cards.inky.role">
+                  AI Copilot
+                </div>
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.specialty">ESPECIALIDADE</span
+                  ><span data-i18n="about.cards.inky.specialty"
+                    >Aceleracao de entrega</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.deliveries">ENTREGAS</span
+                  ><span data-i18n="about.cards.inky.deliveries"
+                    >Prototipos e refino de interface</span
+                  >
+                </div>
+
+                <div class="ghost-stat">
+                  <span data-i18n="about.stat.focus">FOCO</span
+                  ><span data-i18n="about.cards.inky.focus"
+                    >Velocidade com qualidade</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SKILLS ========== -->
+      <section class="skills" id="skills" data-screen-label="03 Skills">
+        <div class="container">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span data-i18n="skills.label">POWER-UPS</span>
+            <span class="level-tag" data-i18n="stage.03">STAGE 03</span>
+          </div>
+
+          <div class="skills-head section-head">
+            <h2 class="section-title" data-i18n="skills.title">
+              SKILLS / INVENTORY
+            </h2>
+            <div class="skills-head-meta section-head-meta">
+              <div>STACK</div>
+              <div class="skills-head-meta-v section-head-meta-v">
+                WEB · MOBILE
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-groups">
+            <div class="skill-group" style="--gc: #00f0ff">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">FRONTEND</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>HTML5 / CSS3</li>
+              </ul>
+            </div>
+
+            <div class="skill-group" style="--gc: #ff2d95">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">MOBILE</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>React Native</li>
+                <li>Expo</li>
+                <li>Realm</li>
+              </ul>
+            </div>
+
+            <div class="skill-group" style="--gc: #ffd400">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">STYLING</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>Tailwind CSS</li>
+                <li>Styled Components</li>
+                <li>Design Systems</li>
+              </ul>
+            </div>
+
+            <div class="skill-group" style="--gc: #9b5cff">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">TOOLING</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>Vite</li>
+                <li>Redux</li>
+                <li>React Query</li>
+                <li>Git / GitHub</li>
+                <li>Storybook</li>
+              </ul>
+            </div>
+
+            <div class="skill-group" style="--gc: #00ff88">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">BACKEND</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>Node.js</li>
+                <li>MongoDB</li>
+                <li>REST APIs</li>
+              </ul>
+            </div>
+
+            <div class="skill-group" style="--gc: #ff8a3d">
+              <div class="sg-header">
+                <span class="sg-dot"></span>
+                <span class="sg-label">IA</span>
+              </div>
+
+              <ul class="sg-list">
+                <li>Gemini</li>
+                <li>GPT</li>
+                <li>Claude Code</li>
+                <li>Grok</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="power-pellet-banner">
+            <div class="power-pellet-content">
+              <div class="pp-icon"></div>
+              <div>
+                <p class="pp-title" data-i18n="skills.banner.title">
+                  FASE BOSS LIBERADA
+                </p>
+                <p class="pp-sub">
+                  <span data-i18n="skills.banner.subtitle"
+                    >Monorepo, design system e arquitetura cross-platform. Tudo
+                    junto, sem perder escala.</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <a class="btn" href="#contact" data-i18n="skills.banner.cta"
+              >COLABORAR →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROJECTS ========== -->
+      <section class="projects" id="projects" data-screen-label="04 Projects">
+        <div class="container">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span data-i18n="projects.label">SELECTED WORK</span>
+            <span class="level-tag" data-i18n="stage.04">STAGE 04</span>
+          </div>
+
+          <div class="projects-head section-head">
+            <h2 class="section-title" data-i18n-html="projects.title">
+              SELECTED<br />LEVELS
+            </h2>
+            <div class="level-counter section-head-meta">
+              <span data-i18n="projects.counter.label">LEVELS CONCLUIDOS</span>
+              <strong class="section-head-meta-v">2 / 3</strong>
+            </div>
+          </div>
+
+          <div class="levels">
+            <!-- Level 01: Stellar UI -->
+            <article class="level-card" style="--c: #00f0ff">
+              <div class="level-num">
+                LEVEL
+                <span class="big">01</span>
+                <div
+                  style="
+                    margin-top: 10px;
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                    color: var(--ink-muted);
+                  "
+                >
+                  SCORE<br /><span style="color: #00f0ff">9,200</span>
+                </div>
+              </div>
+
+              <div class="level-info">
+                <h3>Stellar UI</h3>
+                <div
+                  style="
+                    color: var(--ink-dim);
+                    font-size: 14px;
+                    margin-bottom: 14px;
+                    font-family: var(--font-mono);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                  "
+                >
+                  <span data-i18n="projects.stellar.subtitle"
+                    >Component library for cosmic interfaces</span
+                  >
+                </div>
+
+                <div class="stack">
+                  <span class="tag">React</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Tailwind</span>
+                  <span class="tag">Radix UI</span>
+                  <span class="tag">Turborepo</span>
+                  <span class="tag">Vite</span>
+                </div>
+
+                <p>
+                  <span data-i18n="projects.stellar.description"
+                    >Biblioteca de componentes React com foco em microanimações
+                    e acessibilidade. Inclui design tokens, dark mode automático
+                    e documentação interativa.</span
+                  >
+                </p>
+
+                <div class="level-actions">
+                  <a
+                    class="level-btn"
+                    href="https://stellar-ui-one.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Abrir demo ao vivo do projeto Stellar UI"
+                    data-i18n="projects.actions.play"
+                    >▶ PLAY LIVE</a
+                  >
+                  <a
+                    class="level-btn"
+                    href="https://github.com/vs-front-end/stellar-ui"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Abrir código fonte do projeto Stellar UI no GitHub"
+                    data-i18n="projects.actions.source"
+                    >&lt;/&gt; SOURCE</a
+                  >
+                </div>
+              </div>
+
+              <div class="level-preview">
+                <canvas data-preview="stellar" data-color="#00f0ff"></canvas>
+              </div>
+            </article>
+
+            <!-- Level 02: ThinkCards -->
+            <article class="level-card" style="--c: #ff2d95">
+              <div class="level-num">
+                LEVEL
+                <span class="big">02</span>
+
+                <div
+                  style="
+                    margin-top: 10px;
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                    color: var(--ink-muted);
+                  "
+                >
+                  SCORE<br /><span style="color: #ff2d95">8,500</span>
+                </div>
+              </div>
+
+              <div class="level-info">
+                <h3>ThinkCards</h3>
+                <div
+                  style="
+                    color: var(--ink-dim);
+                    font-size: 14px;
+                    margin-bottom: 14px;
+                    font-family: var(--font-mono);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                  "
+                >
+                  <span data-i18n="projects.thinkcards.subtitle"
+                    >Free Anki alternative com FSRS</span
+                  >
+                </div>
+
+                <div class="stack">
+                  <span class="tag">React</span>
+                  <span class="tag">Tailwind</span>
+                  <span class="tag">Dexie.js</span>
+                  <span class="tag">Supabase</span>
+                </div>
+
+                <p>
+                  <span data-i18n="projects.thinkcards.description"
+                    >Alternativa moderna e gratuita ao Anki. Usa o algoritmo
+                    FSRS para repetição espaçada mais inteligente.
+                    Offline-first, funciona em qualquer dispositivo, sem
+                    instalação.</span
+                  >
+                </p>
+
+                <div class="level-actions">
+                  <a
+                    class="level-btn"
+                    href="https://think-cards.com/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Abrir demo ao vivo do projeto ThinkCards"
+                    data-i18n="projects.actions.play"
+                    >▶ PLAY LIVE</a
+                  >
+                  <a
+                    class="level-btn"
+                    href="https://github.com/vs-front-end/think-cards"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Abrir código fonte do projeto ThinkCards no GitHub"
+                    data-i18n="projects.actions.source"
+                    >&lt;/&gt; SOURCE</a
+                  >
+                </div>
+              </div>
+
+              <div class="level-preview">
+                <canvas data-preview="think" data-color="#ff2d95"></canvas>
+              </div>
+            </article>
+
+            <!-- Level 03: Coming Soon -->
+            <article class="level-card is-soon" style="--c: #ffd400">
+              <div class="level-num">
+                LEVEL
+                <span class="big">03</span>
+                <div
+                  style="
+                    margin-top: 10px;
+                    font-family: var(--font-arcade);
+                    font-size: 9px;
+                    color: #ffd400;
+                  "
+                >
+                  <span data-i18n="projects.soon.locked">LOCKED</span>
+                </div>
+              </div>
+
+              <div class="level-info">
+                <h3 style="color: #ffd400; letter-spacing: 0.3em">???</h3>
+                <div
+                  style="
+                    color: var(--ink-dim);
+                    font-size: 14px;
+                    margin-bottom: 14px;
+                    font-family: var(--font-mono);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                  "
+                >
+                  <span data-i18n="projects.soon.subtitle"
+                    >Próximo level em construção</span
+                  >
+                </div>
+
+                <div class="level-actions">
+                  <span
+                    class="level-btn soon-btn"
+                    style="color: #ffd400; border-color: #ffd400"
+                    data-i18n="projects.soon.cta"
+                    >◌ EM BREVE…</span
+                  >
+                </div>
+              </div>
+
+              <div class="level-preview">
+                <canvas data-preview="soon" data-color="#ffd400"></canvas>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section class="contact" id="contact" data-screen-label="05 Contact">
+        <div class="container" style="position: relative; z-index: 2">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span data-i18n="contact.label">CONTACT</span>
+            <span class="level-tag" data-i18n="stage.05">STAGE 05</span>
+          </div>
+
+          <div class="contact-head section-head">
+            <h2 class="section-title" data-i18n-html="contact.title">
+              PLAY <span class="wave">WITH ME</span>
+            </h2>
+
+            <div class="contact-head-meta section-head-meta">
+              <div data-i18n="contact.status.label">STATUS</div>
+              <div
+                class="contact-head-meta-v section-head-meta-v"
+                data-i18n="contact.status.value"
+              >
+                ABERTO A OPORTUNIDADES
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-links">
+            <a
+              href="https://github.com/vs-front-end"
+              target="_blank"
+              rel="noopener"
+              class="contact-card"
+              style="--c: #ffffff"
+            >
+              <div class="contact-card-main">
+                <p class="c-label" data-i18n="contact.github.label">GITHUB</p>
+                <p class="c-value">
+                  <span
+                    class="c-dot"
+                    style="background: #fff; box-shadow: 0 0 8px #fff"
+                  ></span>
+                  @vs-front-end
+                </p>
+              </div>
+
+              <span class="contact-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M10 0C4.477 0 0 4.589 0 10.252c0 4.529 2.862 8.372 6.833 9.729.507.101.687-.219.687-.492 0-.338-.012-1.442-.012-2.814 0-.956.32-1.58.679-1.898-2.227-.254-4.567-1.121-4.567-5.059 0-1.12.388-2.034 1.03-2.752-.104-.259-.447-1.302.098-2.714 0 0 .838-.275 2.747 1.051A9.43 9.43 0 0 1 10 4.957a9.43 9.43 0 0 1 2.503.345c1.911-1.326 2.751-1.051 2.751-1.051.543 1.412.2 2.455.097 2.714.639.718 1.03 1.632 1.03 2.752 0 3.928-2.335 4.808-4.556 5.067.286.256.545.708.635 1.371.57.262 2.018.715 2.91-.852 0 0 .529-.985 1.533-1.057 0 0 .975-.013.068.623 0 0-.655.315-1.11 1.5 0 0-.587 1.83-3.369 1.21-.005.857-.014 1.665-.014 1.909 0 .271.184.588.683.493C17.135 18.627 20 14.783 20 10.252 20 4.589 15.522 0 10 0z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/vitor-silva-front-end-dev/"
+              target="_blank"
+              rel="noopener"
+              class="contact-card"
+              style="--c: #00f0ff"
+            >
+              <div class="contact-card-main">
+                <p class="c-label" data-i18n="contact.linkedin.label">
+                  LINKEDIN
+                </p>
+
+                <p class="c-value">
+                  <span
+                    class="c-dot"
+                    style="background: #fff; box-shadow: 0 0 8px #fff"
+                  ></span>
+                  vitor-silva
+                </p>
+              </div>
+
+              <span class="contact-card-icon is-linkedin" aria-hidden="true">
+                <svg
+                  viewBox="-143 145 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M113 145c-141.4 0-256 114.6-256 256s114.6 256 256 256 256-114.6 256-256S254.4 145 113 145zM41.4 508.1H-8.5V348.4h49.9v159.7zM15.1 328.4h-.4c-18.1 0-29.8-12.2-29.8-27.7 0-15.8 12.1-27.7 30.5-27.7s29.7 11.9 30.1 27.7c.1 15.4-11.6 27.7-30.4 27.7zM241 508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4-14.9 0-23.2 10-27 19.6-1.4 3.4-1.2 8.2-1.2 13.1v86.3H71.8s.7-146.4 0-159.7h56.1v25.1c3.3-11 21.2-26.6 49.8-26.6 35.5 0 63.3 23 63.3 72.4v88.8z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <footer class="footer">
+            <span data-i18n-html="footer.copy"
+              >© <span data-current-year></span> VITOR SILVA · BUILT WITH HTML +
+              CSS + JS + COFFEE</span
+            >
+            <span data-i18n="footer.highScore">HIGH SCORE: 999,999</span>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <!-- /.app -->
+    <script src="js/audio.js"></script>
+    <script src="js/hud.js"></script>
+    <script src="js/maze-bg.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/minigame.js"></script>
+    <script src="js/previews.js"></script>
+    <script src="js/year.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

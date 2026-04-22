@@ -1,0 +1,198 @@
+.projects {
+  padding: 120px 0;
+}
+
+.projects-head {
+  margin-bottom: 60px;
+}
+
+.projects h2 em {
+  font-style: normal;
+  color: var(--magenta);
+}
+
+.level-counter {
+  min-width: 132px;
+}
+
+.level-counter strong {
+  display: block;
+}
+
+.levels {
+  display: grid;
+  gap: 24px;
+}
+
+.level-card {
+  display: grid;
+  grid-template-columns: 140px 1fr 380px;
+  gap: 40px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #06060f;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+  align-items: center;
+  position: relative;
+}
+
+.level-card:hover {
+  border-color: var(--c, var(--line-strong));
+  transform: none;
+}
+
+.level-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 80% at 0% 0%,
+    var(--c, transparent) 0%,
+    transparent 55%
+  );
+  opacity: 0.12;
+}
+
+.level-num {
+  font-family: var(--font-arcade);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.level-num .big {
+  display: block;
+  font-size: 48px;
+  color: var(--c, var(--ink));
+  margin-top: 8px;
+  text-shadow: 0 0 20px var(--c, transparent);
+}
+
+.level-info h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.level-info .stack {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.level-info .tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.level-info p {
+  color: var(--ink-dim);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  max-width: 540px;
+}
+
+.level-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.level-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.level-btn:hover {
+  background: var(--c, var(--ink));
+  color: #000;
+  border-color: var(--c, var(--ink));
+}
+
+.level-preview {
+  aspect-ratio: 16/10;
+  border-radius: var(--radius);
+  background: #02020a;
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.level-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.level-preview canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.level-card.is-soon {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 212, 0, 0.04),
+    rgba(255, 45, 149, 0.03)
+  );
+}
+
+.soon-btn {
+  border-style: dashed !important;
+  animation: soon-pulse 2s ease-in-out infinite;
+  cursor: default;
+}
+
+.soon-btn:hover {
+  background: transparent !important;
+  color: #ffd400 !important;
+  border-color: #ffd400 !important;
+}
+
+@keyframes soon-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
