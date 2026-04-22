@@ -64,4 +64,3 @@ Then open [http://localhost:8080](http://localhost:8080).
 ## Author
 
 **Vitor Silva** — Frontend Developer  
-[github.com/vs-front-end](https://github.com/vs-front-end) · [linkedin.com/in/vitor-silva-front-end-dev](https://www.linkedin.com/in/vitor-silva-front-end-dev/)
