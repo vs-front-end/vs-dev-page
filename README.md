@@ -2,7 +2,7 @@
 
 > Frontend developer portfolio with a fully playable Pac-Man game, arcade HUD, and bilingual support (PT/EN).
 
-**Live →** [vs-front-end.github.io/vs-dev-page](https://vs-front-end.github.io/vs-dev-page)
+**Live →** [www.vsdev.app](https://www.vsdev.app)
 
 ---
 

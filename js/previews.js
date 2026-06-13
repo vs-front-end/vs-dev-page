@@ -107,6 +107,61 @@ const Previews = (() => {
     ctx.fillText("THINK_CARDS.EXE", 16, h - 10);
   }
 
+  function drawOrbit(ctx, w, h, t, color) {
+    ctx.fillStyle = "#02020a";
+    ctx.fillRect(0, 0, w, h);
+
+    for (let i = 0; i < 40; i++) {
+      const x = (i * 41) % w;
+      const y = (i * 59) % h;
+      ctx.fillStyle = `rgba(255,255,255,${0.15 + (i % 5) * 0.08})`;
+      ctx.beginPath();
+      ctx.arc(x, y, 0.6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    const cx = w / 2;
+    const cy = h / 2;
+    const angle = (t * Math.PI) / 180;
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, 34, angle, angle + Math.PI * 0.9);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, 34, angle + Math.PI, angle + Math.PI * 1.9);
+    ctx.stroke();
+
+    ctx.fillStyle = color;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 14;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    const satR = 34;
+    const sx = cx + Math.cos(angle + 0.4) * satR;
+    const sy = cy + Math.sin(angle + 0.4) * satR * 0.35;
+    const sx2 = cx + Math.cos(angle + Math.PI + 0.6) * satR;
+    const sy2 = cy + Math.sin(angle + Math.PI + 0.6) * satR * 0.35;
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(sx2, sy2, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = color + "99";
+    ctx.font = "10px monospace";
+    ctx.fillText("ORBIT_FINANCE.EXE", 16, h - 10);
+  }
+
   function drawSoon(ctx, w, h, t, color) {
     ctx.fillStyle = "#02020a";
     ctx.fillRect(0, 0, w, h);
@@ -215,6 +270,7 @@ const Previews = (() => {
         ctx.scale(dpr, dpr);
         if (type === "stellar") drawStellar(ctx, w, h, t, color);
         else if (type === "think") drawThink(ctx, w, h, t, color);
+        else if (type === "orbit") drawOrbit(ctx, w, h, t, color);
         else if (type === "soon") drawSoon(ctx, w, h, t, color);
         ctx.restore();
       });

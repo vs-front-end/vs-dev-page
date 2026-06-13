@@ -70,6 +70,9 @@ const I18n = (() => {
       "projects.thinkcards.subtitle": "Alternativa gratuita ao Anki com FSRS",
       "projects.thinkcards.description":
         "Alternativa moderna e gratuita ao Anki. Usa o algoritmo FSRS para repeticao espacada mais inteligente. Offline-first, funciona em qualquer dispositivo, sem instalacao.",
+      "projects.orbit.subtitle": "Hub pessoal de gestao financeira",
+      "projects.orbit.description":
+        "Carteiras multi-moeda, patrimonio consolidado, estatisticas com benchmarks e ferramentas de rebalanceamento e juros compostos.",
       "projects.actions.play": "▶ PLAY LIVE",
       "projects.actions.source": "</> SOURCE",
       "projects.soon.locked": "LOCKED",
@@ -152,6 +155,9 @@ const I18n = (() => {
       "projects.thinkcards.subtitle": "Free Anki alternative with FSRS",
       "projects.thinkcards.description":
         "A modern and free alternative to Anki. Uses the FSRS algorithm for smarter spaced repetition. Offline-first, works on any device, no installation required.",
+      "projects.orbit.subtitle": "Personal finance management hub",
+      "projects.orbit.description":
+        "Multi-currency portfolios, consolidated net worth, stats with benchmarks, and rebalancing and compound interest tools.",
       "projects.actions.play": "▶ PLAY LIVE",
       "projects.actions.source": "</> SOURCE",
       "projects.soon.locked": "LOCKED",
