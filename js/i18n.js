@@ -4,12 +4,12 @@ const I18n = (() => {
 
   const messages = {
     "pt-BR": {
-      "meta.title": "Vitor Silva — Desenvolvedor Frontend",
+      "meta.title": "Vitor Silva — Desenvolvedor Fullstack",
       "hud.lives": "VIDAS",
-      "hero.title.line2": "DEV. FRONT-END",
+      "hero.title.line2": "DEV. FULLSTACK",
       "hero.tag": "DESIGN SYSTEMS · PERFORMANCE · ACESSIBILIDADE",
       "hero.subtitle":
-        "Desenvolvedor front-end com 4 anos de experiência em React, React Native e TypeScript. Construo design systems, monorepos e interfaces que funcionam em web e mobile. Aberto a projetos freelance e oportunidades remotas full-time.",
+        "Desenvolvedor fullstack com 4 anos de experiência em React, React Native, TypeScript e Node.js. Construo design systems, monorepos e interfaces que funcionam em web e mobile, com APIs que sustentam o produto. Aberto a projetos freelance e oportunidades remotas full-time.",
       "hero.meta.basedLabel": "BASE",
       "hero.meta.basedValue": "Brasil · Remoto",
       "hero.meta.statusLabel": "STATUS",
@@ -89,12 +89,12 @@ const I18n = (() => {
       "footer.highScore": "HIGH SCORE: 999,999",
     },
     en: {
-      "meta.title": "Vitor Silva — Frontend Developer",
+      "meta.title": "Vitor Silva — Fullstack Developer",
       "hud.lives": "LIVES",
-      "hero.title.line2": "FRONT-END DEV.",
+      "hero.title.line2": "FULLSTACK DEV.",
       "hero.tag": "DESIGN SYSTEMS · PERFORMANCE · ACCESSIBILITY",
       "hero.subtitle":
-        "Frontend developer with 4 years of experience in React, React Native, and TypeScript. I build design systems, monorepos, and interfaces that work across web and mobile. Open to freelance projects and remote full-time opportunities.",
+        "Fullstack developer with 4 years of experience in React, React Native, TypeScript, and Node.js. I build design systems, monorepos, and interfaces that work across web and mobile, backed by the APIs that power them. Open to freelance projects and remote full-time opportunities.",
       "hero.meta.basedLabel": "BASED IN",
       "hero.meta.basedValue": "Brazil · Remote",
       "hero.meta.statusLabel": "STATUS",
